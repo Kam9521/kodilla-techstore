@@ -1,0 +1,226 @@
+.product-details-page {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 64px 0 100px;
+}
+
+.product-back-link {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 34px;
+  color: #80e9f7;
+  text-decoration: none;
+  font-weight: 600;
+  transition:
+    color 0.2s,
+    transform 0.2s;
+}
+
+.product-back-link:hover {
+  color: #fff;
+  transform: translateX(-5px);
+}
+
+.product-details-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.product-image-panel,
+.product-info-panel {
+  border: 1px solid rgba(106, 172, 255, 0.25);
+  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    rgba(26, 49, 105, 0.82),
+    rgba(11, 19, 49, 0.94)
+  );
+  box-shadow: 0 20px 65px rgba(0, 0, 0, 0.25);
+  animation: details-appear 0.75s ease both;
+}
+
+.product-image-panel {
+  padding: 22px;
+}
+
+.product-featured-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+  background: #101b37;
+  transition: transform 0.4s ease;
+}
+
+.product-featured-image:hover {
+  transform: scale(1.015);
+}
+
+.product-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.product-thumbnail {
+  width: 88px;
+  height: 72px;
+  padding: 4px;
+  border: 1px solid rgba(106, 172, 255, 0.25);
+  border-radius: 12px;
+  background: rgba(9, 18, 44, 0.8);
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.product-thumbnail:hover,
+.product-thumbnail.active {
+  border-color: #28e1e7;
+  box-shadow: 0 0 18px rgba(40, 225, 231, 0.25);
+}
+
+.product-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product-info-panel {
+  padding: 38px;
+  animation-delay: 0.12s;
+}
+
+.product-eyebrow {
+  color: #37e2e8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.product-details-title {
+  margin: 16px 0 22px;
+  color: #fff;
+  font-size: clamp(30px, 3vw, 46px);
+  line-height: 1.12;
+}
+
+.product-details-description {
+  color: #c4cee8;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.product-details-price {
+  margin: 30px 0;
+  font-size: 38px;
+  font-weight: 800;
+  color: #30e3e6;
+  text-shadow: 0 0 24px rgba(48, 227, 230, 0.2);
+}
+
+.product-purchase-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: end;
+}
+
+.product-quantity-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #c4cee8;
+}
+
+.product-quantity-field input {
+  width: 92px;
+  height: 50px;
+  padding: 0 12px;
+  color: #fff;
+  border: 1px solid rgba(106, 172, 255, 0.35);
+  border-radius: 12px;
+  background: rgba(9, 18, 44, 0.8);
+  font: inherit;
+}
+
+.product-add-button {
+  min-height: 50px;
+  padding: 0 28px;
+  border: 0;
+  border-radius: 12px;
+  color: #07162c;
+  background: linear-gradient(110deg, #24e0e3, #58c7ff);
+  box-shadow: 0 0 28px rgba(36, 224, 227, 0.24);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.product-add-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 36px rgba(36, 224, 227, 0.42);
+}
+
+.product-added-message {
+  margin-top: 24px;
+  padding: 16px;
+  border: 1px solid rgba(48, 227, 230, 0.35);
+  border-radius: 12px;
+  background: rgba(48, 227, 230, 0.08);
+  color: #dffcff;
+}
+
+.product-added-message a {
+  color: #30e3e6;
+  font-weight: 700;
+}
+
+@keyframes details-appear {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 850px) {
+  .product-details-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .product-info-panel {
+    padding: 26px;
+  }
+
+  .product-details-page {
+    padding-top: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-image-panel,
+  .product-info-panel {
+    animation: none;
+  }
+
+  .product-featured-image,
+  .product-add-button,
+  .product-back-link {
+    transition: none;
+  }
+}
