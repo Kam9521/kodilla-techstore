@@ -10,7 +10,7 @@ import { OrdersModule } from './orders/orders.module';
   imports: [
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', '..', 'client', 'dist'),
-      exclude: ['/api*'],
+      exclude: ['/api/(.*)'],
     }),
     PrismaModule,
     ProductsModule,
